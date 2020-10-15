@@ -1,0 +1,25 @@
+##takes a list l of float pointing numbers as an argument and returns a tuple of the min, max, sum, and average of all *positive* numbers in l
+def get_all_stats(l):
+    list_temp1 = list(filter(lambda num: num > 0, l))
+    return min(list_temp1), max(list_temp1), sum(list_temp1), sum(list_temp1)/len(list_temp1)
+
+
+##works the same as get_all_stats above. In addition, it returns "Invalid value!" if l has any non-floating point number
+def get_all_stats2(l):
+    list_temp1 = list(filter(lambda num: num > 0, l))
+    if any(type(num) is not float for num in l):
+        return "Invalid value!"
+    return min(list_temp1), max(list_temp1), sum(list_temp1), sum(list_temp1)/len(list_temp1)
+
+
+##takes a string s and an integer limit as arguments and returns the string as it is if the length of the string is equal to or less than limit
+def truncate(s, limit=50):
+    if len(s) <= limit:
+        return (s)
+    else:
+        return (s[0:50] + "...")
+
+
+##dictionary kwargs that sets the parameter values of s and limit on your own and call the function truncate by passing kwargs
+kwargs = {"s": "This homework corresponds to the Jun 4 class.", "limit": 50}
+truncate(**kwargs)
